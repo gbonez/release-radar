@@ -27,21 +27,13 @@ LASTFM_USERNAME = os.environ.get("LASTFM_USERNAME")
 ARTISTS_FILE = "artists.json"
 RELEASES_FILE = "releases.json"
 
-import os
-from spotipy import Spotify
-from spotipy.oauth2 import SpotifyOAuth
-
 scope = "user-library-read playlist-modify-private playlist-modify-public user-top-read"
-TOKEN_CACHE = ".spotify_token_cache"
-
 sp = Spotify(auth_manager=SpotifyOAuth(
     client_id=SPOTIFY_CLIENT_ID,
     client_secret=SPOTIFY_CLIENT_SECRET,
     redirect_uri=SPOTIFY_REDIRECT_URI,
-    scope=scope,
-    cache_path=TOKEN_CACHE
+    scope=scope
 ))
-
 
 # ==== HELPERS ====
 def parse_release_date(date_str):
