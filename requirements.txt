@@ -1,2 +1,3 @@
-pip install flask spotipy twilio
-pip freeze > requirements.txt
+flask
+spotipy
+twilio
