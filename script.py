@@ -6,13 +6,14 @@ from spotipy.oauth2 import SpotifyOAuth
 from twilio.rest import Client
 
 # ==== CONFIGURATION ====
-SPOTIFY_CLIENT_ID = "your_spotify_client_id"
-SPOTIFY_CLIENT_SECRET = "your_spotify_client_secret"
-SPOTIFY_REDIRECT_URI = "http://localhost:8888/callback"
-TWILIO_SID = "your_twilio_sid"
-TWILIO_AUTH_TOKEN = "your_twilio_auth_token"
-TWILIO_PHONE = "+15555555555"  # Twilio number
-MY_PHONE = "+15555555555"      # Your phone number
+SPOTIFY_CLIENT_ID = os.environ.get("SPOTIFY_CLIENT_ID")
+SPOTIFY_CLIENT_SECRET = os.environ.get("SPOTIFY_CLIENT_SECRET")
+SPOTIFY_REDIRECT_URI = os.environ.get("BASE_URL") + "/callback"
+
+TWILIO_SID = os.environ.get("TWILIO_SID")
+TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
+TWILIO_PHONE = os.environ.get("TWILIO_PHONE")
+MY_PHONE = os.environ.get("MY_PHONE")
 
 ARTISTS_FILE = "artists.json"
 RELEASES_FILE = "releases.json"
