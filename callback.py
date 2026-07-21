@@ -38,14 +38,17 @@ def callback():
     refresh_token = tokens.get("refresh_token")
 
     print("✅ Access token:", access_token)
-    print("🔁 Refresh token:", refresh_token)
+    print("=" * 60)
+    print("🔁 NEW SPOTIFY_REFRESH_TOKEN (copy this to Railway env vars):")
+    print(refresh_token)
+    print("=" * 60)
 
     # Save tokens to file
     with open(TOKENS_FILE, "w") as f:
         json.dump(tokens, f, indent=2)
         print(f"💾 Tokens saved to {TOKENS_FILE}")
 
-    return "Authorization complete! You can close this window."
+    return f"Authorization complete! Your new refresh token is:<br><br><code>{refresh_token}</code><br><br>Copy it to the SPOTIFY_REFRESH_TOKEN env var in Railway, then you can close this window."
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
